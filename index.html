@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ти си прекрасна!</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f8f8;
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        button {
+            background-color: #ff1493;
+            color: white;
+            font-size: 18px;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 20, 147, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ff69b4;
+            transform: scale(1.1);
+        }
+
+        #message {
+            font-size: 28px;
+            color: #ff69b4;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            width: 60%;
+            margin: 20px auto;
+            box-shadow: 0 15px 30px rgba(255, 105, 180, 0.2);
+            display: none; /* Скрито по подразбиране */
+            opacity: 0;
+            transform: translateY(-30px);
+            transition: opacity 1s ease, transform 1s ease; /* Добавяне на ефекти */
+        }
+
+        #message.show {
+            display: block;
+            opacity: 1;
+            transform: translateY(0); /* Плавно движение надолу */
+        }
+
+        /* Ефекти за звездички */
+        .stars {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 36px;
+            color: #ff69b4;
+            animation: starAnimation 2s infinite; /* Анимация на звездички */
+        }
+
+        @keyframes starAnimation {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.5;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.5);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.5;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <button onclick="showMessage()">✨ Покажи съобщението ✨</button>
+
+    <div id="message">
+        Ти си прекрасна майка! 💖
+    </div>
+
+    <!-- Звездички -->
+    <div class="stars">
+        ✨ ✨ ✨ ✨ ✨
+    </div>
+
+    <script>
+        function showMessage() {
+            var message = document.getElementById('message');
+            message.classList.add('show');  // Добавя клас за показване и ефекти
+
+            // Показва звездички след малко забавяне
+            setTimeout(function() {
+                document.querySelector('.stars').style.display = 'block';
+            }, 500);  // Звездичките се показват 500 милисекунди след натискането
+        }
+    </script>
+
+</body>
+</html>
